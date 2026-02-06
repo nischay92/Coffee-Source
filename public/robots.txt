@@ -1,0 +1,9 @@
+# Robots.txt for CoorgSource
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://coorgsource.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
