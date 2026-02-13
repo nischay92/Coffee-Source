@@ -1,4 +1,4 @@
-# Bean Sourced - Coffee & Spice Sourcing Website
+# BeanSource - Coffee & Spice Sourcing Website
 
 A professional website for a Coffee & Spice Sourcing and Trade Facilitation business based in Coorg (Kodagu), Karnataka, India.
 

@@ -1,9 +1,9 @@
-# Robots.txt for Bean Sourced
+# Robots.txt for BeanSource
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://beansourced.com/sitemap.xml
+Sitemap: https://beansource.com/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1

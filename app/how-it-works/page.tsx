@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'How It Works - Our Sourcing Process | Bean Sourced',
+  title: 'How It Works - Our Sourcing Process | BeanSource',
   description: 'Learn about our simple 5-step sourcing process. From requirement submission to trade execution, we handle every step of coffee and spice sourcing.',
   keywords: 'coffee sourcing process, spice trade facilitation, bulk commodity sourcing, agricultural trade process, coffee export process India',
 };

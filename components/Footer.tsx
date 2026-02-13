@@ -34,13 +34,13 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-6">
               <Image
                 src="/images/logo-icon.png"
-                alt="Bean Sourced"
+                alt="BeanSource"
                 width={56}
                 height={56}
                 className="h-14 w-auto brightness-0 invert"
               />
               <span className="font-serif text-2xl font-bold text-white">
-                Bean Sourced
+                BeanSource
               </span>
             </Link>
             <p className="text-coffee-300 text-sm leading-relaxed mb-6">
@@ -113,10 +113,10 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-coffee-400 flex-shrink-0" />
                 <a
-                  href="mailto:info@beansourced.com"
+                  href="mailto:info@beansource.com"
                   className="text-coffee-300 hover:text-white transition-colors duration-200 text-sm"
                 >
-                  info@beansourced.com
+                  info@beansource.com
                 </a>
               </li>
             </ul>
@@ -129,7 +129,7 @@ export default function Footer() {
         <div className="container-custom px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-coffee-400 text-sm">
-              &copy; {currentYear} Bean Sourced. All rights reserved.
+              &copy; {currentYear} BeanSource. All rights reserved.
             </p>
             <p className="text-coffee-500 text-xs max-w-2xl text-center md:text-right">
               Disclaimer: We act solely as a sourcing and trade facilitation partner. We do not take ownership of goods. All commercial transactions are directly between buyer and seller.

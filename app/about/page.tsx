@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { Target, Eye, Users, TrendingUp, MapPin, Award, ArrowRight, CheckCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'About Us - Bean Sourced | Coffee & Spice Sourcing Partner',
-  description: 'Learn about Bean Sourced - your trusted coffee and spice sourcing partner based in Kodagu (Coorg), Karnataka. We connect farmers with bulk buyers through transparent trade facilitation.',
-  keywords: 'about Bean Sourced, coffee sourcing company, spice trading partner, Coorg coffee, Karnataka coffee supplier, trade facilitation India',
+  title: 'About Us - BeanSource | Coffee & Spice Sourcing Partner',
+  description: 'Learn about BeanSource - your trusted coffee and spice sourcing partner based in Kodagu (Coorg), Karnataka. We connect farmers with bulk buyers through transparent trade facilitation.',
+  keywords: 'about BeanSource, coffee sourcing company, spice trading partner, Coorg coffee, Karnataka coffee supplier, trade facilitation India',
 };
 
 const values = [
@@ -55,7 +55,7 @@ export default function AboutPage() {
               <MapPin className="w-4 h-4" />
               Based in Kodagu, Karnataka
             </div>
-            <h1 className="heading-primary text-white mb-6">About Bean Sourced</h1>
+            <h1 className="heading-primary text-white mb-6">About BeanSource</h1>
             <p className="text-xl text-coffee-100 leading-relaxed">
               Your professional sourcing bridge between producers and bulk buyers, 
               operating from India's most premium coffee and spice producing region.

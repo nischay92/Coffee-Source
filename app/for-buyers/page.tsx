@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'For Buyers - Bulk Coffee & Spice Sourcing | Bean Sourced',
+  title: 'For Buyers - Bulk Coffee & Spice Sourcing | BeanSource',
   description: 'Source quality coffee and spices directly from Coorg. We work with wholesalers, exporters, roasters, and institutional buyers. Competitive pricing, verified suppliers.',
   keywords: 'bulk coffee buyer India, wholesale spice purchase, coffee exporter supplier, bulk pepper buyer, institutional coffee supplier, roaster coffee supply',
 };

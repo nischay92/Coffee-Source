@@ -26,14 +26,14 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-3 -m-1.5 p-1.5">
             <Image
               src="/images/logo-icon.png"
-              alt="Bean Sourced"
+              alt="BeanSource"
               width={56}
               height={56}
               className="h-14 w-auto"
               priority
             />
             <span className="font-serif text-2xl font-bold text-coffee-800 hidden sm:block">
-              Bean Sourced
+              BeanSource
             </span>
           </Link>
 

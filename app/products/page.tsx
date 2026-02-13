@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Coffee, Leaf, ArrowRight, CheckCircle, Info, Package } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Products - Coffee & Spices | Bean Sourced',
+  title: 'Products - Coffee & Spices | BeanSource',
   description: 'Source premium Arabica, Robusta coffee beans, black pepper, cardamom, and other spices from Coorg. All products sourced through verified farmers and traders.',
   keywords: 'Arabica coffee beans India, Robusta coffee supplier, black pepper bulk, green cardamom wholesale, Coorg coffee, plantation AA coffee, parchment coffee, cherry coffee',
 };

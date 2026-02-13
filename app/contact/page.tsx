@@ -58,8 +58,8 @@ export default function ContactPage() {
         },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `New Enquiry from ${formData.name} - Bean Sourced`,
-          from_name: 'Bean Sourced Website',
+          subject: `New Enquiry from ${formData.name} - BeanSource`,
+          from_name: 'BeanSource Website',
           name: formData.name,
           email: formData.email,
           company_name: formData.companyName || 'Not provided',
@@ -162,8 +162,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                    <a href="mailto:info@beansourced.com" className="text-coffee-700 hover:underline">
-                      info@beansourced.com
+                    <a href="mailto:info@beansource.com" className="text-coffee-700 hover:underline">
+                      info@beansource.com
                     </a>
                   </div>
                 </div>
