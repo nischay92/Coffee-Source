@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'For Buyers - Bulk Coffee & Spice Sourcing | CoorgSource',
+  title: 'For Buyers - Bulk Coffee & Spice Sourcing | Bean Sourced',
   description: 'Source quality coffee and spices directly from Coorg. We work with wholesalers, exporters, roasters, and institutional buyers. Competitive pricing, verified suppliers.',
   keywords: 'bulk coffee buyer India, wholesale spice purchase, coffee exporter supplier, bulk pepper buyer, institutional coffee supplier, roaster coffee supply',
 };
@@ -232,7 +232,7 @@ export default function ForBuyersPage() {
               <Link href="/contact" className="btn-primary bg-white text-coffee-900 hover:bg-coffee-100">
                 Submit Requirement <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
-              <Link href="/products" className="btn-secondary border-white text-white hover:bg-white/10">
+              <Link href="/products" className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-transparent border-2 border-white rounded-lg hover:bg-white/10 transition-colors duration-200">
                 View Products
               </Link>
             </div>

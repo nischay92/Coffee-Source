@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://coorgsource.com';
+  const baseUrl = 'https://beansourced.com';
 
   return [
     {

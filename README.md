@@ -1,4 +1,4 @@
-# CoorgSource - Coffee & Spice Sourcing Website
+# Bean Sourced - Coffee & Spice Sourcing Website
 
 A professional website for a Coffee & Spice Sourcing and Trade Facilitation business based in Coorg (Kodagu), Karnataka, India.
 
@@ -22,7 +22,7 @@ A professional website for a Coffee & Spice Sourcing and Trade Facilitation busi
 1. **Home** - Hero section, about summary, trust factors, product overview
 2. **About Us** - Company story, mission, Coorg advantage
 3. **Products** - Coffee and Spices with grades and descriptions
-4. **How It Works** - 6-step sourcing process
+4. **How It Works** - 5-step sourcing process
 5. **For Buyers** - Benefits and information for bulk buyers
 6. **For Suppliers** - Benefits and information for farmers/traders
 7. **Contact** - Enquiry form and contact details

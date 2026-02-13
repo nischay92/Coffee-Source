@@ -5,16 +5,15 @@ import {
   Search, 
   PackageCheck, 
   DollarSign, 
-  Truck, 
-  Handshake,
+  Truck,
   ArrowRight,
   ArrowDown,
   CheckCircle
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'How It Works - Our Sourcing Process | CoorgSource',
-  description: 'Learn about our simple 6-step sourcing process. From requirement submission to trade execution, we handle every step of coffee and spice sourcing.',
+  title: 'How It Works - Our Sourcing Process | Bean Sourced',
+  description: 'Learn about our simple 5-step sourcing process. From requirement submission to trade execution, we handle every step of coffee and spice sourcing.',
   keywords: 'coffee sourcing process, spice trade facilitation, bulk commodity sourcing, agricultural trade process, coffee export process India',
 };
 
@@ -49,10 +48,10 @@ const steps = [
   {
     number: 3,
     icon: PackageCheck,
-    title: 'Sampling & Quality Check',
-    description: 'Samples are arranged for buyer approval. Quality parameters are verified against specifications.',
+    title: 'Quality Check',
+    description: 'Quality parameters are verified against specifications.',
     details: [
-      'Sample collection & dispatch',
+      
       'Quality parameter testing',
       'Grade verification',
       'Moisture & defect analysis',
@@ -85,19 +84,6 @@ const steps = [
       'Shipment tracking',
     ],
   },
-  {
-    number: 6,
-    icon: Handshake,
-    title: 'Commission-Based Execution',
-    description: 'Our service is compensated via a transparent commission on successful trade execution.',
-    details: [
-      'Clear commission structure',
-      'No hidden charges',
-      'Success-based model',
-      'Long-term partnership focus',
-      'Post-trade support',
-    ],
-  },
 ];
 
 export default function HowItWorksPage() {
@@ -112,7 +98,7 @@ export default function HowItWorksPage() {
           <div className="max-w-3xl">
             <h1 className="heading-primary text-white mb-6">How It Works</h1>
             <p className="text-xl text-coffee-100 leading-relaxed">
-              Our simple, transparent 6-step process makes sourcing coffee and spices 
+              Our simple, transparent 5-step process makes sourcing coffee and spices 
               from Coorg straightforward and hassle-free.
             </p>
           </div>
@@ -175,7 +161,7 @@ export default function HowItWorksPage() {
                 Our streamlined process is designed to protect both buyers and suppliers
               </p>
             </div>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
               <div className="text-center">
                 <div className="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="w-8 h-8 text-secondary-700" />
@@ -194,22 +180,13 @@ export default function HowItWorksPage() {
                   Access to serious buyers, fair pricing, secure transactions, and market expansion
                 </p>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="w-8 h-8 text-secondary-700" />
-                </div>
-                <h3 className="font-semibold text-lg mb-2">Transparent Model</h3>
-                <p className="text-gray-600 text-sm">
-                  Clear commission structure, no hidden costs, success-based compensation
-                </p>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Preview */}
-      <section className="section-padding bg-white">
+      {/* <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             <h2 className="heading-secondary text-center mb-10">Common Questions</h2>
@@ -239,6 +216,7 @@ export default function HowItWorksPage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* CTA Section */}
       <section className="section-padding bg-coffee-900 text-white">
@@ -254,7 +232,7 @@ export default function HowItWorksPage() {
               <Link href="/contact" className="btn-primary bg-white text-coffee-900 hover:bg-coffee-100">
                 Submit Requirement <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
-              <Link href="/products" className="btn-secondary border-white text-white hover:bg-white/10">
+              <Link href="/products" className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-transparent border-2 border-white rounded-lg hover:bg-white/10 transition-colors duration-200">
                 View Products
               </Link>
             </div>

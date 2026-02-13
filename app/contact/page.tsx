@@ -1,28 +1,28 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import { 
   Mail, 
   Phone, 
   MapPin, 
   MessageCircle, 
   Send,
-  Building2,
   Clock,
-  CheckCircle
+  CheckCircle,
+  AlertCircle
 } from 'lucide-react';
 
 const products = [
   'Arabica Coffee',
   'Robusta Coffee',
+  'Roasted Coffee',
   'Black Pepper',
-  'Green Cardamom',
-  'Black Cardamom',
-  'Cloves',
-  'Areca Nut',
+  'Cardamom',
   'Other',
 ];
+
+// Web3Forms Access Key
+const WEB3FORMS_ACCESS_KEY = '271deaab-1941-4f83-a1a6-9a96d8d9fb4c';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -38,6 +38,7 @@ export default function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -46,15 +47,57 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    setError('');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New Enquiry from ${formData.name} - Bean Sourced`,
+          from_name: 'Bean Sourced Website',
+          name: formData.name,
+          email: formData.email,
+          company_name: formData.companyName || 'Not provided',
+          enquiry_type: formData.type,
+          product_interest: formData.product,
+          quantity: formData.quantity || 'Not specified',
+          destination: formData.destination || 'Not specified',
+          phone: formData.phone,
+          message: formData.message || 'No additional message',
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitted(true);
+        setFormData({
+          name: '',
+          companyName: '',
+          type: '',
+          product: '',
+          quantity: '',
+          destination: '',
+          email: '',
+          phone: '',
+          message: '',
+        });
+      } else {
+        setError('Something went wrong. Please try again or contact us via WhatsApp.');
+      }
+    } catch (err) {
+      setError('Failed to submit. Please check your internet connection or contact us via WhatsApp.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const whatsappNumber = '919535044721'; // Replace with actual number
+  const whatsappNumber = '919535044721';
   const whatsappMessage = encodeURIComponent('Hello! I am interested in sourcing coffee/spices from Coorg. Please share more details.');
 
   return (
@@ -119,8 +162,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                    <a href="mailto:info@coorgsource.com" className="text-coffee-700 hover:underline">
-                      info@coorgsource.com
+                    <a href="mailto:info@beansourced.com" className="text-coffee-700 hover:underline">
+                      info@beansourced.com
                     </a>
                   </div>
                 </div>
@@ -168,20 +211,7 @@ export default function ContactPage() {
                       Your enquiry has been submitted successfully. Our team will contact you within 24 hours.
                     </p>
                     <button
-                      onClick={() => {
-                        setIsSubmitted(false);
-                        setFormData({
-                          name: '',
-                          companyName: '',
-                          type: '',
-                          product: '',
-                          quantity: '',
-                          destination: '',
-                          email: '',
-                          phone: '',
-                          message: '',
-                        });
-                      }}
+                      onClick={() => setIsSubmitted(false)}
                       className="btn-secondary"
                     >
                       Submit Another Enquiry
@@ -341,6 +371,13 @@ export default function ContactPage() {
                         placeholder="Tell us more about your requirements, quality specifications, or any other details..."
                       />
                     </div>
+
+                    {error && (
+                      <div className="flex items-center gap-2 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                        <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                        <p className="text-sm">{error}</p>
+                      </div>
+                    )}
 
                     <button
                       type="submit"

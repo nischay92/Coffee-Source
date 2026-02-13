@@ -4,7 +4,6 @@ import {
   CheckCircle,
   Users,
   Shield,
-  TrendingUp,
   Globe,
   Handshake,
   ArrowRight,
@@ -54,11 +53,6 @@ const trustFactors = [
     description: 'Quality verification & grading support for every shipment',
   },
   {
-    icon: TrendingUp,
-    title: 'Transparent Model',
-    description: 'Transparent commission-based model with clear pricing',
-  },
-  {
     icon: Handshake,
     title: 'Buyer-Supplier Matching',
     description: 'Expert matching of buyers with verified suppliers',
@@ -74,14 +68,14 @@ const products = [
   {
     category: 'Coffee',
     icon: Coffee,
-    items: ['Arabica Coffee Beans', 'Robusta Coffee Beans', 'Plantation AA', 'Green Coffee Beans'],
+    items: ['Arabica Coffee Beans', 'Robusta Coffee Beans', 'Roasted Coffee Beans'],
     color: 'bg-coffee-100',
     iconColor: 'text-coffee-700',
   },
   {
     category: 'Spices',
     icon: Leaf,
-    items: ['Black Pepper (Various Grades)', 'Green Cardamom', 'Black Cardamom', 'Cloves'],
+    items: ['Black Pepper (Various Grades)', 'Cardamom'],
     color: 'bg-secondary-100',
     iconColor: 'text-secondary-700',
   },
@@ -110,7 +104,7 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full text-coffee-700 text-sm font-medium mb-6 animate-fade-in">
               <Award className="w-4 h-4" />
-              Trusted Sourcing Partner Since 2020
+              Trusted Sourcing Partner Since 2025
             </div>
             
             <h1 className="heading-primary mb-6 animate-fade-in">
@@ -163,125 +157,11 @@ export default function HomePage() {
               We work closely with farmers, aggregators, and local traders to connect them with verified bulk 
               buyers, exporters, wholesalers, and institutional clients across India and international markets.
             </p>
-            <p className="text-body">
-              Our role is to ensure smooth sourcing, quality verification, pricing coordination, and trade 
-              execution through a transparent, <strong className="text-coffee-700">commission-based model</strong>.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* Coffee Journey Section */}
-      <section className="section-padding bg-coffee-50">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="heading-secondary mb-4">From Farm to Export</h2>
-            <p className="text-body max-w-2xl mx-auto">
-              Experience the journey of premium Coorg coffee from plantation to your destination
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {coffeeJourney.map((step, index) => (
-              <div key={index} className="group">
-                <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-4 shadow-lg">
-                  <Image
-                    src={step.image}
-                    alt={step.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute top-4 left-4 w-8 h-8 bg-coffee-700 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                    {index + 1}
-                  </div>
-                </div>
-                <h3 className="font-semibold text-lg text-gray-900 mb-1">{step.title}</h3>
-                <p className="text-gray-600 text-sm">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Spices Showcase */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src="/images/spices-display.png"
-                alt="Premium Spices from Coorg"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div>
-              <h2 className="heading-secondary mb-6">Premium Spices from South India</h2>
-              <p className="text-body mb-6">
-                Beyond coffee, Coorg is renowned for its aromatic spices. Our network of farmers and traders 
-                provide access to the finest black pepper, cardamom, cloves, and other plantation spices.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {['Black Pepper - Known as Black Gold', 'Green Cardamom - Queen of Spices', 'Premium Cloves & Areca Nut'].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-secondary-600" />
-                    <span className="text-gray-700">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link href="/products#spices" className="btn-primary">
-                Explore Spices <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-12 bg-coffee-700">
-        <div className="container-custom px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold text-white mb-2">{stat.value}</div>
-                <div className="text-coffee-200 text-sm sm:text-base">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Factors Section */}
       <section className="section-padding bg-gray-50">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="heading-secondary mb-4">Why Choose Us</h2>
-            <p className="text-body max-w-2xl mx-auto">
-              We bring together the best of origin sourcing with professional trade facilitation
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {trustFactors.map((factor, index) => (
-              <div key={index} className="card p-6">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-coffee-100 rounded-lg flex items-center justify-center">
-                    <factor.icon className="w-6 h-6 text-coffee-700" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 text-lg mb-2">{factor.title}</h3>
-                    <p className="text-gray-600">{factor.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Products Overview */}
-      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-secondary mb-4">What We Source</h2>
@@ -316,6 +196,152 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Coffee Journey Section */}
+      {/*
+      <section className="section-padding bg-coffee-50">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="heading-secondary mb-4">From Farm to Export</h2>
+            <p className="text-body max-w-2xl mx-auto">
+              Experience the journey of premium Coorg coffee from plantation to your destination
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {coffeeJourney.map((step, index) => (
+              <div key={index} className="group">
+                <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-4 shadow-lg">
+                  <Image
+                    src={step.image}
+                    alt={step.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute top-4 left-4 w-8 h-8 bg-coffee-700 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                    {index + 1}
+                  </div>
+                </div>
+                <h3 className="font-semibold text-lg text-gray-900 mb-1">{step.title}</h3>
+                <p className="text-gray-600 text-sm">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      */}
+
+      {/* Spices Showcase */}
+      {/* Explore Products Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+                poster="/images/spices-display.png"
+              >
+                <source src="/videos/coffee-spices.mp4" type="video/mp4" />
+                {/* Fallback to image if video doesn't load */}
+                <Image
+                  src="/images/spices-display.png"
+                  alt="Coffee and Spices from Coorg"
+                  fill
+                  className="object-cover"
+                />
+              </video>
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </div>
+            <div>
+              <h2 className="heading-secondary mb-6">Explore Our Products</h2>
+              <p className="text-body mb-6">
+                From the misty hills of Coorg, we source India's finest coffee and aromatic spices. 
+                Our network connects you directly with premium Arabica, Robusta, black pepper, 
+                cardamom, and more.
+              </p>
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                <div className="flex items-center gap-3 p-3 bg-coffee-50 rounded-lg">
+                  <Coffee className="w-6 h-6 text-coffee-700" />
+                  <div>
+                    <p className="font-semibold text-gray-900">Coffee</p>
+                    <p className="text-sm text-gray-600">Arabica, Robusta & more</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-secondary-50 rounded-lg">
+                  <Leaf className="w-6 h-6 text-secondary-700" />
+                  <div>
+                    <p className="font-semibold text-gray-900">Spices</p>
+                    <p className="text-sm text-gray-600">Pepper & Cardamom</p>
+                  </div>
+                </div>
+              </div>
+              <ul className="space-y-3 mb-8">
+                {['Premium Arabica, Robusta & Roasted Beans', 'Black Pepper - Known as Black Gold', 'Cardamom - Queen of Spices'].map((item, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-secondary-600" />
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link href="/products" className="btn-primary">
+                View All Products <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      {/*<section className="py-12 bg-coffee-700">
+        <div className="container-custom px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-3xl sm:text-4xl font-bold text-white mb-2">{stat.value}</div>
+                <div className="text-coffee-200 text-sm sm:text-base">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      */}
+
+      {/* Trust Factors Section */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="heading-secondary mb-4">Why Choose Us</h2>
+            <p className="text-body max-w-2xl mx-auto">
+              We bring together the best of origin sourcing with professional trade facilitation
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {trustFactors.map((factor, index) => (
+              <div key={index} className="card p-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-coffee-100 rounded-lg flex items-center justify-center">
+                    <factor.icon className="w-6 h-6 text-coffee-700" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 text-lg mb-2">{factor.title}</h3>
+                    <p className="text-gray-600">{factor.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Products Overview */}
+      
 
       {/* How It Works Preview */}
       <section className="section-padding bg-coffee-50">
@@ -368,7 +394,7 @@ export default function HomePage() {
               <Link href="/contact" className="btn-primary bg-white text-coffee-900 hover:bg-coffee-100">
                 Request a Quote
               </Link>
-              <Link href="/for-suppliers" className="btn-secondary border-white text-white hover:bg-white/10">
+              <Link href="/for-suppliers" className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-transparent border-2 border-white rounded-lg hover:bg-white/10 transition-colors duration-200">
                 Partner with Us
               </Link>
             </div>

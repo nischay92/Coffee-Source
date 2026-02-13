@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { Target, Eye, Users, TrendingUp, MapPin, Award, ArrowRight, CheckCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'About Us - CoorgSource | Coffee & Spice Sourcing Partner',
-  description: 'Learn about CoorgSource - your trusted coffee and spice sourcing partner based in Kodagu (Coorg), Karnataka. We connect farmers with bulk buyers through transparent trade facilitation.',
-  keywords: 'about CoorgSource, coffee sourcing company, spice trading partner, Coorg coffee, Karnataka coffee supplier, trade facilitation India',
+  title: 'About Us - Bean Sourced | Coffee & Spice Sourcing Partner',
+  description: 'Learn about Bean Sourced - your trusted coffee and spice sourcing partner based in Kodagu (Coorg), Karnataka. We connect farmers with bulk buyers through transparent trade facilitation.',
+  keywords: 'about Bean Sourced, coffee sourcing company, spice trading partner, Coorg coffee, Karnataka coffee supplier, trade facilitation India',
 };
 
 const values = [
@@ -55,7 +55,7 @@ export default function AboutPage() {
               <MapPin className="w-4 h-4" />
               Based in Kodagu, Karnataka
             </div>
-            <h1 className="heading-primary text-white mb-6">About CoorgSource</h1>
+            <h1 className="heading-primary text-white mb-6">About Bean Sourced</h1>
             <p className="text-xl text-coffee-100 leading-relaxed">
               Your professional sourcing bridge between producers and bulk buyers, 
               operating from India's most premium coffee and spice producing region.
@@ -100,7 +100,7 @@ export default function AboutPage() {
                     <Award className="w-6 h-6" />
                     <span className="font-semibold">Trusted Partner</span>
                   </div>
-                  <p className="text-sm text-white/80">Facilitating agricultural trade since 2020</p>
+                  <p className="text-sm text-white/80">Facilitating agricultural trade since 2025</p>
                 </div>
               </div>
             </div>
@@ -238,7 +238,7 @@ export default function AboutPage() {
               <Link href="/contact" className="btn-primary bg-white text-coffee-900 hover:bg-coffee-100">
                 Get in Touch <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
-              <Link href="/how-it-works" className="btn-secondary border-white text-white hover:bg-white/10">
+              <Link href="/how-it-works" className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-transparent border-2 border-white rounded-lg hover:bg-white/10 transition-colors duration-200">
                 See How It Works
               </Link>
             </div>

@@ -1,9 +1,9 @@
-# Robots.txt for CoorgSource
+# Robots.txt for Bean Sourced
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://coorgsource.com/sitemap.xml
+Sitemap: https://beansourced.com/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1

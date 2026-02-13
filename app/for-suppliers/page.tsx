@@ -12,8 +12,8 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'For Suppliers & Farmers - Partner with CoorgSource',
-  description: 'Partner with CoorgSource to access bulk buyers across India and international markets. Fair pricing, reliable payments, and long-term partnerships for farmers, FPOs, and traders.',
+  title: 'For Suppliers & Farmers - Partner with Bean Sourced',
+  description: 'Partner with Bean Sourced to access bulk buyers across India and international markets. Fair pricing, reliable payments, and long-term partnerships for farmers, FPOs, and traders.',
   keywords: 'sell coffee bulk, coffee supplier registration, spice trader partnership, farmer market access, FPO coffee sale, agricultural trade partner',
 };
 
@@ -238,7 +238,7 @@ export default function ForSuppliersPage() {
               <Link href="/contact" className="btn-primary bg-white text-coffee-900 hover:bg-coffee-100">
                 Register as Supplier <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
-              <Link href="/how-it-works" className="btn-secondary border-white text-white hover:bg-white/10">
+              <Link href="/how-it-works" className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-transparent border-2 border-white rounded-lg hover:bg-white/10 transition-colors duration-200">
                 Learn More
               </Link>
             </div>

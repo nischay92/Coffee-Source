@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Coffee, Leaf, ArrowRight, CheckCircle, Info, Package } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Products - Coffee & Spices | CoorgSource',
+  title: 'Products - Coffee & Spices | Bean Sourced',
   description: 'Source premium Arabica, Robusta coffee beans, black pepper, cardamom, and other spices from Coorg. All products sourced through verified farmers and traders.',
   keywords: 'Arabica coffee beans India, Robusta coffee supplier, black pepper bulk, green cardamom wholesale, Coorg coffee, plantation AA coffee, parchment coffee, cherry coffee',
 };
@@ -13,32 +13,17 @@ const coffeeProducts = [
   {
     name: 'Arabica Coffee Beans',
     description: 'Premium Arabica beans known for their smooth, mild flavor with fruity and floral notes. Grown at higher elevations in Coorg.',
-    grades: ['Plantation A', 'Plantation B', 'Plantation PB'],
+    grades: ['Grade A', 'Grade AA', 'Grade AAA'],
   },
   {
     name: 'Robusta Coffee Beans',
     description: 'Strong, bold Robusta beans with higher caffeine content. Ideal for espresso blends and instant coffee production.',
-    grades: ['Robusta Parchment', 'Robusta Cherry', 'AB Grade'],
+    grades: ['Grade A', 'Grade AA', 'Grade AAA'],
   },
   {
-    name: 'Plantation AA',
-    description: 'Top-grade Indian coffee with large, uniform beans. Known for its full body and balanced acidity.',
-    grades: ['AA Grade', 'Screen 17+'],
-  },
-  {
-    name: 'Parchment Coffee',
-    description: 'Coffee beans still covered in their papery parchment layer. Preferred by roasters who want to control the final processing.',
-    grades: ['Arabica Parchment', 'Robusta Parchment'],
-  },
-  {
-    name: 'Cherry Coffee',
-    description: 'Whole coffee fruit dried with the pulp intact. Produces a distinctive, fruity flavor profile.',
-    grades: ['Dried Cherry', 'Natural Process'],
-  },
-  {
-    name: 'Green Coffee Beans',
-    description: 'Unroasted coffee beans ready for export or local roasting. Available in various grades and processing methods.',
-    grades: ['Washed', 'Unwashed', 'Semi-washed'],
+    name: 'Roasted Coffee Beans',
+    description: 'Expertly roasted coffee beans with rich aroma and full-bodied flavor. Available in light, medium, and dark roast profiles.',
+    grades: ['Grade A', 'Grade AA', 'Grade AAA'],
   },
 ];
 
@@ -49,30 +34,30 @@ const spiceProducts = [
     grades: ['MG1', 'TGEB', 'FAQ', 'Pinhead'],
   },
   {
-    name: 'Green Cardamom',
+    name: 'Cardamom',
     description: 'Aromatic green cardamom with intense flavor. Essential for culinary, medicinal, and aromatic applications.',
     grades: ['8mm Bold', '7mm', '6mm'],
   },
-  {
-    name: 'Black Cardamom',
-    description: 'Smoky, robust black cardamom primarily used in savory dishes and traditional medicine.',
-    grades: ['Premium', 'Standard'],
-  },
-  {
-    name: 'Cloves',
-    description: 'High-quality cloves with intense aroma and flavor. Sourced from South Indian plantations.',
-    grades: ['Hand-picked', 'Machine Cleaned'],
-  },
-  {
-    name: 'Areca Nut',
-    description: 'Also known as betel nut, sourced from Coorg and surrounding regions. Available whole or processed.',
-    grades: ['Whole', 'Split', 'Processed'],
-  },
-  {
-    name: 'Other Plantation Spices',
-    description: 'Additional spices available on request including nutmeg, mace, and other regional specialties.',
-    grades: ['As per requirement'],
-  },
+  // {
+  //   name: 'Black Cardamom',
+  //   description: 'Smoky, robust black cardamom primarily used in savory dishes and traditional medicine.',
+  //   grades: ['Premium', 'Standard'],
+  // },
+  // {
+  //   name: 'Cloves',
+  //   description: 'High-quality cloves with intense aroma and flavor. Sourced from South Indian plantations.',
+  //   grades: ['Hand-picked', 'Machine Cleaned'],
+  // },
+  // {
+  //   name: 'Areca Nut',
+  //   description: 'Also known as betel nut, sourced from Coorg and surrounding regions. Available whole or processed.',
+  //   grades: ['Whole', 'Split', 'Processed'],
+  // },
+  // {
+  //   name: 'Other Plantation Spices',
+  //   description: 'Additional spices available on request including nutmeg, mace, and other regional specialties.',
+  //   grades: ['As per requirement'],
+  // },
 ];
 
 export default function ProductsPage() {
@@ -234,7 +219,7 @@ export default function ProductsPage() {
               <Link href="/contact" className="btn-primary bg-white text-coffee-900 hover:bg-coffee-100">
                 Request Quote <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
-              <Link href="/how-it-works" className="btn-secondary border-white text-white hover:bg-white/10">
+              <Link href="/how-it-works" className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-transparent border-2 border-white rounded-lg hover:bg-white/10 transition-colors duration-200">
                 How Sourcing Works
               </Link>
             </div>

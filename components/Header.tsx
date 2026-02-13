@@ -2,15 +2,16 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, Coffee, ChevronDown } from 'lucide-react';
+import Image from 'next/image';
+import { Menu, X } from 'lucide-react';
 
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/about' },
   { name: 'Products', href: '/products' },
   { name: 'How It Works', href: '/how-it-works' },
-  { name: 'For Buyers', href: '/for-buyers' },
-  { name: 'For Suppliers', href: '/for-suppliers' },
+  // { name: 'For Buyers', href: '/for-buyers' },
+  // { name: 'For Suppliers', href: '/for-suppliers' },
   { name: 'Contact', href: '/contact' },
 ];
 
@@ -22,14 +23,18 @@ export default function Header() {
       <nav className="container-custom" aria-label="Global">
         <div className="flex items-center justify-between py-4 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 -m-1.5 p-1.5">
-            <div className="flex items-center justify-center w-10 h-10 bg-coffee-700 rounded-lg">
-              <Coffee className="w-6 h-6 text-white" />
-            </div>
-            <div className="hidden sm:block">
-              <span className="font-serif text-xl font-bold text-gray-900">Coorg</span>
-              <span className="font-serif text-xl font-bold text-coffee-700">Source</span>
-            </div>
+          <Link href="/" className="flex items-center gap-3 -m-1.5 p-1.5">
+            <Image
+              src="/images/logo-icon.png"
+              alt="Bean Sourced"
+              width={56}
+              height={56}
+              className="h-14 w-auto"
+              priority
+            />
+            <span className="font-serif text-2xl font-bold text-coffee-800 hidden sm:block">
+              Bean Sourced
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
