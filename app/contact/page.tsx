@@ -161,8 +161,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                    <a href="mailto:info@beansource.com" className="text-coffee-700 hover:underline">
-                      info@beansource.com
+                    <a href="mailto:info@beansource.in" className="text-coffee-700 hover:underline">
+                      info@beansource.in
                     </a>
                   </div>
                 </div>

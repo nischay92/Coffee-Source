@@ -113,10 +113,10 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-coffee-400 flex-shrink-0" />
                 <a
-                  href="mailto:info@beansource.com"
+                  href="mailto:info@beansource.in"
                   className="text-coffee-300 hover:text-white transition-colors duration-200 text-sm"
                 >
-                  info@beansource.com
+                  info@beansource.in
                 </a>
               </li>
             </ul>
