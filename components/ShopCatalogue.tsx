@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { getProducts } from '@/lib/catalogue';
 import { collections } from '@/lib/content';
 import { formatMoney } from '@/lib/money';
+import { isProductUpload } from '@/lib/product-media';
 
 export default async function ShopCatalogue({ collection, search }: { collection?: string; search: string }) {
   const category = collections.find(item => item.slug === collection);
@@ -23,7 +24,7 @@ export default async function ShopCatalogue({ collection, search }: { collection
       {products.length ? <div className="shop-products">
         {products.map(product => <Link href={`/shop/product/${product.handle}`} className="collection-card" key={product.id}>
           <div className="product-photo">
-            {product.image_path ? <Image src={product.image_path} alt={product.image_alt || product.title} fill sizes="(max-width: 767px) 50vw, 33vw" />
+            {product.image_path ? <Image src={product.image_path} unoptimized={isProductUpload(product.image_path)} alt={product.image_alt || product.title} fill sizes="(max-width: 767px) 50vw, 33vw" />
               : <div className="product-photo-empty"><Coffee size={38} aria-hidden="true" /></div>}
           </div>
           <h3>{product.title}</h3>

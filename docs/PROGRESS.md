@@ -17,3 +17,10 @@
 - Updated the v2 Next.js and React dependencies to resolve audit findings. Build, type check and production dependency audit passed.
 - Verified the isolated PostgreSQL smoke test for catalogue search, price and stock checks, fixture payment verification, repeated webhooks, PayPal invoice sync, manual records, CSV, quote submission and fulfilment. Browser checks covered desktop and mobile layout, mobile navigation, search, blend validation, admin sign-in and bag changes.
 - The review app runs locally at `http://127.0.0.1:3100/`. The live catalogue is empty until approved records are imported. Provider sandbox tests and receipt delivery still need configured accounts. No Vercel deployment or production settings were changed.
+
+## 2026-11-25 — Staff catalogue management
+
+- Separated admin navigation from the public storefront. Admin pages have staff-only Overview, Products and Sign out controls.
+- Added an authenticated product list and editor for drafts, publishing, photo uploads and covers, variant prices and stock. Sale prices apply throughout retail checkout, while existing order snapshots retain their prices.
+- Applied the catalogue migration to the local preview database. The build, type check, commerce and catalogue integration checks, and Chrome upload-to-publish flow passed. Test products were kept in separate databases.
+- Staff can add approved catalogue records in the [local product editor](http://127.0.0.1:3100/admin/products/new/).

@@ -1,6 +1,6 @@
 import { randomBytes } from 'node:crypto';
 import { inTransaction, query } from './db';
-import { availabilitySQL, indiaShipping, variantLabel, type CartItem, type Variant } from './catalogue';
+import { availabilitySQL, effectivePriceSQL, indiaShipping, variantLabel, type CartItem, type Variant } from './catalogue';
 import { field, RequestError } from './http';
 import { razorpayCredentials, razorpayRequest, type RazorpayPayment } from './razorpay';
 
@@ -37,7 +37,7 @@ export async function startCheckout(items: CartItem[], customerData: unknown, ex
   const order = await inTransaction(async db => {
     await db.query('SELECT id FROM variants WHERE id = ANY($1::uuid[]) ORDER BY id FOR UPDATE', [ids]);
     const { rows } = await db.query<Omit<ItemSnapshot, 'quantity'>>(`
-      SELECT v.id, v.grade, v.roast, v.format, v.pack_size, v.price_minor, p.title,
+      SELECT v.id, v.grade, v.roast, v.format, v.pack_size, ${effectivePriceSQL} AS price_minor, p.title,
         ${availabilitySQL} AS available
       FROM variants v JOIN products p ON p.id = v.product_id
       WHERE v.active AND p.published AND v.id = ANY($1::uuid[])`, [ids]);

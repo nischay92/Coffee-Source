@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Coffee, MapPin, PackageCheck } from 'lucide-react';
 import { collections, services } from '@/lib/content';
 import { featuredCoffees } from '@/lib/catalogue';
+import { isProductUpload } from '@/lib/product-media';
 
 export const revalidate = 300;
 
@@ -52,7 +53,7 @@ export default async function HomePage() {
         <div className="collection-grid">
           {featured.map(product => <Link className="collection-card" key={product.handle} href={`/shop/product/${product.handle}`}>
             <div className="collection-photo">{product.image_path
-              ? <Image src={product.image_path} alt={product.image_alt || product.title} fill sizes="(max-width: 767px) 50vw, 25vw" />
+              ? <Image src={product.image_path} unoptimized={isProductUpload(product.image_path)} alt={product.image_alt || product.title} fill sizes="(max-width: 767px) 50vw, 25vw" />
               : <div className="product-photo-empty"><Coffee aria-hidden="true" /></div>}</div>
             <h3>{product.title}</h3>
           </Link>)}

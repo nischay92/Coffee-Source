@@ -34,7 +34,11 @@ export default function VariantPicker({ variants }: { variants: Option[] }) {
   }
 
   return <div className="panel flex flex-col gap-4">
-    <p className="text-2xl font-semibold">{formatMoney(variant.price_minor)}</p>
+    <p className="text-2xl font-semibold flex flex-wrap items-baseline gap-3">
+      {formatMoney(variant.price_minor)}
+      {variant.regular_price_minor != null && variant.regular_price_minor > variant.price_minor &&
+        <del className="text-base font-normal text-coffee-700" aria-label={`Regular price ${formatMoney(variant.regular_price_minor)}`}>{formatMoney(variant.regular_price_minor)}</del>}
+    </p>
     <label className="field">Coffee option<select value={variant.id} onChange={event => { selectVariant(event.target.value); setQuantity(1); setMessage(''); }}>
       {variants.map(item => <option key={item.id} value={item.id}>{item.label}{item.available < 1 ? ' — unavailable' : ''}</option>)}
     </select></label>

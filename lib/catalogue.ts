@@ -1,7 +1,7 @@
 import { databaseConfigured, query } from './db';
 import { RequestError } from './http';
 
-export type Variant = { id: string; grade: string | null; roast: string | null; format: string | null; pack_size: string | null; price_minor: number; available: number };
+export type Variant = { id: string; grade: string | null; roast: string | null; format: string | null; pack_size: string | null; price_minor: number; regular_price_minor?: number; available: number };
 export type Product = {
   id: string; handle: string; title: string; description: string; collection: string;
   image_path: string | null; image_alt: string | null; origin: string | null;
@@ -20,6 +20,8 @@ export const availabilitySQL = `greatest(v.stock - coalesce((
   WHERE i.variant_id = v.id AND o.status = 'pending' AND o.reservation_expires_at > now()
 ), 0), 0)::int`;
 
+export const effectivePriceSQL = 'coalesce(v.sale_price_minor, v.price_minor)';
+
 export async function getProducts({ handle, collection, search }: { handle?: string; collection?: string; search?: string } = {}) {
   if (!databaseConfigured()) return [];
   const value = search?.slice(0, 100).trim();
@@ -31,8 +33,8 @@ export async function getProducts({ handle, collection, search }: { handle?: str
       ), '[]'::jsonb) AS images, coalesce((
         SELECT jsonb_agg(jsonb_build_object(
           'id', v.id, 'grade', v.grade, 'roast', v.roast, 'format', v.format, 'pack_size', v.pack_size,
-          'price_minor', v.price_minor, 'available', ${availabilitySQL}
-        ) ORDER BY v.price_minor, v.sku)
+          'price_minor', ${effectivePriceSQL}, 'regular_price_minor', v.price_minor, 'available', ${availabilitySQL}
+        ) ORDER BY ${effectivePriceSQL}, v.sku)
         FROM variants v WHERE v.product_id = p.id AND v.active
       ), '[]'::jsonb) AS variants
     FROM products p WHERE p.published
@@ -63,7 +65,7 @@ export function parseItems(raw: unknown): CartItem[] {
 
 export async function getCartLines(items: CartItem[]) {
   const { rows } = await query<Omit<CartLine, 'quantity'>>(`
-    SELECT v.id, v.grade, v.roast, v.format, v.pack_size, v.price_minor, ${availabilitySQL} AS available,
+    SELECT v.id, v.grade, v.roast, v.format, v.pack_size, ${effectivePriceSQL} AS price_minor, ${availabilitySQL} AS available,
       p.title, p.handle FROM variants v JOIN products p ON p.id = v.product_id
     WHERE v.active AND p.published AND v.id = ANY($1::uuid[])`,
   [items.map(item => item.id)]);

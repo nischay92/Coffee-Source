@@ -6,6 +6,7 @@ import { Coffee } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import VariantPicker from '@/components/VariantPicker';
 import { getProducts, variantLabel } from '@/lib/catalogue';
+import { isProductUpload } from '@/lib/product-media';
 
 export const dynamic = 'force-dynamic';
 const findProduct = cache(async (handle: string) => (await getProducts({ handle }))[0]);
@@ -35,10 +36,10 @@ export default async function ProductPage({ params }: Props) {
     <Link className="text-link inline-block mb-6" href="/shop">Back to shop</Link>
     <div className="store-product">
       <div>
-        <div className="product-photo">{product.image_path ? <Image src={product.image_path} alt={product.image_alt || product.title} fill sizes="(max-width: 767px) 100vw, 50vw" priority /> :
+        <div className="product-photo">{product.image_path ? <Image src={product.image_path} unoptimized={isProductUpload(product.image_path)} alt={product.image_alt || product.title} fill sizes="(max-width: 767px) 100vw, 50vw" priority /> :
           <div className="product-photo-empty"><Coffee size={48} aria-hidden="true" /></div>}</div>
         {product.images.length > 1 && <div className="grid grid-cols-2 gap-3 mt-3">{product.images.slice(1).map(photo =>
-          <div key={photo.path} className="product-photo"><Image src={photo.path} alt={photo.alt} fill sizes="(max-width: 767px) 50vw, 25vw" /></div>)}</div>}
+          <div key={photo.path} className="product-photo"><Image src={photo.path} unoptimized={isProductUpload(photo.path)} alt={photo.alt} fill sizes="(max-width: 767px) 50vw, 25vw" /></div>)}</div>}
       </div>
       <div>
         <header className="page-heading !pt-0"><h1>{product.title}</h1><p>{product.description}</p></header>

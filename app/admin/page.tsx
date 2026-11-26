@@ -63,7 +63,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
   return <section className="site-wrap shop-shell">
     <header className="page-heading flex flex-wrap justify-between items-end gap-4">
       <div><p className="eyebrow">BEANSOURCE STAFF</p><h1>Transactions &amp; orders</h1><p>Signed in as {admin}.</p></div>
-      <AdminForm action="logout" label="Sign out" className="mb-4" />
+      <Link className="action mb-4" href="/admin/products/new/">Add product</Link>
     </header>
     <nav className="shop-filters" aria-label="Admin sections"><a href="#transactions">Transactions</a><a href="#record">Record or sync</a><a href="#orders">Retail orders</a><a href="#enquiries">Enquiries</a></nav>
 
