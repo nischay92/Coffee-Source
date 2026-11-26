@@ -38,7 +38,7 @@ const steps = [
     title: 'Supplier Sourcing',
     description: 'We source matching suppliers from our farmer and trader network in Coorg and other major producing regions.',
     details: [
-      'Network of 500+ verified farmers',
+      'Farmer and trader sourcing enquiries',
       'Partnerships with aggregators',
       'Access to local traders',
       'Coverage across Karnataka',

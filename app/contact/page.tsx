@@ -20,9 +20,6 @@ const products = [
   'Other',
 ];
 
-// Web3Forms Access Key
-const WEB3FORMS_ACCESS_KEY = '271deaab-1941-4f83-a1a6-9a96d8d9fb4c';
-
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
@@ -49,31 +46,18 @@ export default function ContactPage() {
     setError('');
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('/api/enquiries/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `New Enquiry from ${formData.name} - BeanSource`,
-          from_name: 'BeanSource Website',
-          name: formData.name,
-          email: formData.email,
-          company_name: formData.companyName || 'Not provided',
-          enquiry_type: formData.type,
-          product_interest: formData.product,
-          quantity: formData.quantity || 'Not specified',
-          destination: formData.destination || 'Not specified',
-          phone: formData.phone,
-          message: formData.message || 'No additional message',
-        }),
+        body: JSON.stringify({ ...formData, service: 'contact' }),
       });
 
       const result = await response.json();
 
-      if (result.success) {
+      if (response.ok && result.received) {
         setIsSubmitted(true);
         setFormData({
           name: '',
@@ -87,7 +71,7 @@ export default function ContactPage() {
           message: '',
         });
       } else {
-        setError('Something went wrong. Please try again or contact us via WhatsApp.');
+        setError(result.error || 'Something went wrong. Please try again or contact us via WhatsApp.');
       }
     } catch (err) {
       setError('Failed to submit. Please check your internet connection or contact us via WhatsApp.');
@@ -198,7 +182,7 @@ export default function ContactPage() {
             <div className="lg:col-span-2">
               <div className="bg-gray-50 rounded-2xl p-8">
                 <h2 className="heading-secondary mb-2">Enquiry Form</h2>
-                <p className="text-gray-600 mb-8">Fill in your details and we'll get back to you within 24 hours.</p>
+                <p className="text-gray-600 mb-8">Share your details and we’ll get back to you.</p>
 
                 {isSubmitted ? (
                   <div className="text-center py-12">
@@ -207,7 +191,7 @@ export default function ContactPage() {
                     </div>
                     <h3 className="text-2xl font-semibold text-gray-900 mb-4">Thank You!</h3>
                     <p className="text-gray-600 mb-6">
-                      Your enquiry has been submitted successfully. Our team will contact you within 24 hours.
+                      Your enquiry has been received.
                     </p>
                     <button
                       onClick={() => setIsSubmitted(false)}

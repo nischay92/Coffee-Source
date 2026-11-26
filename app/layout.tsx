@@ -4,66 +4,25 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import './globals.css';
 
+const site = process.env.SITE_URL;
+const description = 'Arabica, Robusta and signature blends from Coorg, Karnataka. Explore BeanSource coffee and talk to us about bulk sourcing, private labelling and gifting.';
+
 export const metadata: Metadata = {
-  title: 'BeanSource - Premium Coffee & Spice Sourcing from Coorg | Trade Facilitation Partner',
-  description: 'Your trusted Coffee & Spice Sourcing Partner from Coorg, Karnataka. Connecting verified farmers and traders with bulk buyers, exporters, and importers across India and international markets. Commission-based trade facilitation.',
-  keywords: 'bulk coffee supplier India, Coorg coffee sourcing, black pepper bulk supplier, spice sourcing agent India, coffee export sourcing partner, bulk spice trader India, coffee and spice sourcing Coorg, Robusta coffee, Arabica coffee, green cardamom, black pepper',
-  authors: [{ name: 'BeanSource' }],
-  creator: 'BeanSource',
-  publisher: 'BeanSource',
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  openGraph: {
-    type: 'website',
-    locale: 'en_IN',
-    url: 'https://beansource.com',
-    siteName: 'BeanSource',
-    title: 'BeanSource - Premium Coffee & Spice Sourcing from Coorg',
-    description: 'Trusted trade facilitation partner connecting farmers with bulk buyers across India and international markets.',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'BeanSource - Coffee & Spice Sourcing',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'BeanSource - Premium Coffee & Spice Sourcing from Coorg',
-    description: 'Trusted trade facilitation partner connecting farmers with bulk buyers.',
-    images: ['/og-image.jpg'],
-  },
-  verification: {
-    google: 'your-google-verification-code',
-  },
+  metadataBase: new URL(site || 'http://localhost:3000'),
+  title: { default: 'BeanSource — Coffee from Coorg', template: '%s | BeanSource' },
+  description,
+  robots: { index: Boolean(site), follow: Boolean(site) },
+  openGraph: { type: 'website', locale: 'en_IN', siteName: 'BeanSource', description, images: ['/images/coffee-roasting.png'] },
+  referrer: 'strict-origin-when-cross-origin',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta name="theme-color" content="#8a5541" />
-      </head>
-      <body className="min-h-screen flex flex-col bg-white">
+    <html lang="en-IN">
+      <body className="min-h-screen flex flex-col">
+        <a className="skip-link" href="#main-content">Skip to content</a>
         <Header />
-        <main className="flex-grow">{children}</main>
+        <main id="main-content" className="flex-grow">{children}</main>
         <Footer />
         <WhatsAppButton />
       </body>
